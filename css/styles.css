@@ -1,0 +1,828 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(184, 91%, 17%);
+  --clr-primary-2: hsl(185, 84%, 25%);
+  --clr-primary-3: hsl(185, 81%, 29%);
+  --clr-primary-4: hsl(184, 77%, 34%);
+  /* primary/main color */
+  --clr-primary-5: hsl(185, 62%, 45%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(185, 57%, 50%);
+  --clr-primary-7: hsl(184, 65%, 59%);
+  --clr-primary-8: hsl(184, 80%, 74%);
+  --clr-primary-9: hsl(185, 94%, 87%);
+  --clr-primary-10: hsl(186, 100%, 94%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --ff-primary: "Lato", sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-primary);
+  background: var(--clr-white);
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+/* img {
+  width: 100%;
+  display: block;
+} */
+/* Dieses Styling sorgt dafür, dass das Logo (als img) zunächst über die gesamte Seitenbreite zieht. Man kann jedoch Ausnahmen hinzufügen, und zwar so (alle img außer .nav-logo): */
+img:not(.nav-logo) {
+  width: 100%;
+  display: block;
+}
+/* Anmerkung: Die Größe, die man jetzt sieht, ist die TATSÄCHLICHE Größe des img/Logos. So lange es noch auf width: 100%; eingestellt war, wurde es auf Seitenbreite vergrößert! */
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  /* font-weight: 700; */
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.btn:hover {
+  color: var(--clr-primary-1);
+  background: var(--clr-primary-8);
+}
+
+.section {
+  padding: 5rem 0;
+  /* Abstand nach oben und unten */
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  text-transform: uppercase;
+}
+
+.section-title span {
+  color: var(--clr-primary-5);
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+/* Bestimmt die die Gesamtbreite der Sektion und damit die Breite aller Spalten dieser Klasse. margin rückt die Spalten in die Mitte des übergeordneten Containers. max-width sorgt dafür, dass eine Sektion nicht unbegrenzt breit wird.*/
+
+@media screen and (min-width: 992px) {
+  .section-center {
+    width: 95vw;
+  }
+}
+/* Das verstehe ich nicht. Warum macht er die Sektion noch breiter, wenn sie ohnehin schon breiter wird? */
+/*
+=============== 
+Navbar
+===============
+*/
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--clr-white);
+  box-shadow: var(--dark-shadow);
+  z-index: 2;
+}
+/* Klebt die Navbar an den oberen Bildschirmrand, nimmt sie aus dem Fluss (Hero-Image schiebt sich "darunter".)
+box-shadow schafft Abgrenzung zu anderen weißen Seitenbereichen, z-index hebt die Navbar ganz nach oben, damit sie nicht hinter einigen Bildern verschwindet.*/
+
+.nav-icons {
+  display: none;
+}
+/* Icons werden generell versteckt; auf breiteren Schirmen werden sie wieder aktiviert. */
+
+.nav-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+/* Die Container-div, die die Navbar-Elemente enthält, wird auf dieselbe Maximalbreite eingestellt wie die anderen Sektionen der Seite.
+margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente darin. */
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-toggle {
+  background: transparent;
+  border: transparent;
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+/* Die beiden transparent-Angaben entfernen das blöde Grau und den schwarzen Rand des Buttons. */
+
+.nav-toggle:hover {
+  transform: scale(1.2);
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  transition: var(--transition);
+  color: var(--clr-grey-1);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: var(--clr-primary-1);
+  background: var(--clr-primary-8);
+  padding-left: 2.25rem;
+}
+
+/* Per Inspektor nachgesehen: Höhe der Navbar ist 280px. */
+.nav-links {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+/* height: 0; lässt zu, dass das Hero-Bild bzw. die Seiteninhalte sich über die Links schieben. overflow: hidden; sorgt dafür, dass die gesamte Höhe der Links "überfließt" und damit verschwindet.*/
+
+.show-links {
+  height: 280px;
+}
+/* Diese Klase wird dem ul-Container zusätzlich zu .nav-links per JS hinzugefügt. Dann wird die vorher bestehende Höhe von 280px wieder angezeigt und die Links sichtbar. MECHANISMUS!*/
+
+@media screen and (min-width: 992px) {
+  /* hide toggle button */
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  /* Höhe für die Links bereitstellen.
+  align-items: center; bringt Logo und Links auf gleiche Höhe, height: auto; stellt den Elementen die nötige Höhe zur Verfügung.
+  flex-wrap: wrap: optional, für media queries, bei denen die Breite geringer ist als 992px, so dass der Platz für nicht mehr  für alle Menüeinträge reicht.*/
+  .nav-links {
+    height: auto;
+    display: flex;
+  }
+  .nav-header {
+    padding: 0 0;
+  }
+  /* kein zusätzliches Padding, padding wird allein in der .navbar-Klasse oben festgelegt. */
+  .nav-link {
+    padding: 0 0;
+    margin-right: 0.7rem;
+  }
+  /* s.oben., Festlegung in .navbar. */
+  .nav-link:hover {
+    padding: 0;
+    color: var(--clr-primary-5);
+    background: transparent;
+  }
+  .nav-icons {
+    display: flex;
+  }
+  /* display: flex; schaltet zum einen display: none; wieder aus, zudem werden die Icons innerhalb ihres Containers ul.nav-icons flex und damit nebeneinander angezeigt.*/
+  .nav-icon {
+    margin-right: 0.7rem;
+    color: var(--clr-primary-5);
+    font-size: 1.2rem;
+    transition: var(--transition);
+  }
+  .nav-icon:hover {
+    color: var(--clr-primary-8);
+  }
+}
+
+/*
+=============== 
+Hero
+===============
+*/
+.hero {
+  min-height: 100vh;
+  background: var(--clr-primary-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* DAS ist der Code, um Children-Elemente zentral anzuordnen, bzw. genauer: um das einzige Cild-Element, .hero-banner, zentral anzuordnen.*/
+}
+
+.hero-banner {
+  text-align: center;
+  color: var(--clr-white);
+  padding: 0 3rem;
+  /* padding sorgt dafür, dass die Schrift immer einen Abstand nach rechts und links einhält und bei Bildschirm-Verkleinerung eher umbricht.
+  text-align: center; platziert den Text
+  in jedem Child-Element in der Mitte. Dabei erstrecken sich children vom Block-Typ bis zum Seitenende (minus padding), children vom inline-Typ (z.B. Link, als Button gestylt) nur über ihre Inhaltsbreite.
+  text-align: center rückt den Text in jedem block-Element in dessen Mitte, beim Link "zieht" der Text das Element mit in die Mitte. */
+}
+
+.hero-banner h1 {
+  text-transform: uppercase;
+  /* background: indianred; */
+}
+/* Für die Startseite: Überschreiben der oben für h1 angelegten basic styles */
+
+.hero-banner p {
+  max-width: 35rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--clr-white);
+  letter-spacing: var(--spacing);
+  /* background: grey; */
+}
+/* Nach dem Festlegen der Maximalbreite hängt der Text am linken Rand. WARUM?? Weil: Der breiteste Container (der für Continue Exploring) die Breite von .hero-banner bestimmt. Die ELemente darin werden jeweils am linken Rand angelegt und haben zunächst (block-Elemente) Containerbreite (minus Padding) bzw. (inline-Elemente) Inhaltsbreite. Wenn p nun durch max-width schmaler wird, zieht er nur noch 35rem nach links, und der Text darin hängt - obwohl im Element gecentert - ebenfalls links. margin-left und margin-right: auto lösen das, sie lösen p vom linken Rand und bringen ihn in die Mitte. Oben und unten wirken die Margins aus den basic styles. */
+
+.hero-btn {
+  padding: 0.9rem 1.6rem;
+  font-size: 1.25rem;
+  background: var(--clr-white);
+  color: var(--clr-primary-5);
+}
+
+.hero-btn:hover {
+  background: transparent;
+  color: var(--clr-white);
+  border-color: var(--clr-white);
+}
+/* Beachte: Wenn schon eine Border definiert ist (oben unter btn, 2px solid transparent (!! Löst das Hüpf-Problem bei Mouseover.)), muss hier nur die Farbe geändert werden. Auch eine Transition muss nicht mehr festgelegt werden, weil sie in der global btn-Klasse bereits besteht.*/
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../images/main.jpeg") center/cover no-repeat;
+  }
+  .hero-banner {
+    padding: 0;
+  }
+  .hero-banner p {
+    max-width: 45rem;
+  }
+}
+/* Wird hier so eingestellt, dass auf einem kleinen Bildschirm nur der farbige Hintergrund gezeigt wird, weil das große Hero-Image sinnlos ist.
+Der Farbgradient für die Abtönung des Bildes ist ein Blau-Schwarz-Verlauf. Beachte: Gradient VOR dem Bild!! */
+
+/*
+=============== 
+About
+===============
+*/
+/* section add to globals, siehe oben .setion und section- */
+/* title add to globals, siehe ebenfalls oben */
+/* section center add to globals */
+.about-img,
+.about.info {
+  margin-bottom: 2rem;
+}
+/* Rand unter den beiden Spalten/Elementen*/
+
+@media screen and (min-width: 992px) {
+  .about-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+/* Ab einer Breite von 992 werden die beiden Spalten flex angezeigt und damit nebeneinander. Frage: Was aber hält die Spalten so schmal, dass sie nebeneinander wandern? Warum ist nicht zum Beispiel ein Absatz so breit, dass die Schrift dennoch unter dem Bild angezeigt wird? Wenn man noch weitere Spalten einfügt, werden es bis zu sechs, immer schmaler. Warum werden die Spalten immer schmaler? Wenn ich es richtig verstehe, berechnet der Browser die Breiten, wenn eine explizite Angabe fehlt. Daher reiht er immer weiter an, auf Basis des Element-Inhalts, und ein p wird "nicht so breit gesehen" bzw. umgebrochen, damit er in die Zeile passt, die durch das Bild vergleichsweise hoch ist. flex-wrap: wrap; würde dafür sorgen, dass die Absätze ganz lang werden und unter das Bild wandern.*/
+
+.about-img,
+.about-info {
+  flex: 0 0 calc(50% - 2rem);
+  margin-bottom: 0;
+  align-self: center;
+}
+/* Hier wird festgelegt, dass beide Spalten in about-center dieselbe Breite von 50% haben. Die Angaben nach flex bedeuten: kein Vergrößern, kein Verkleinern der Children, Breite wird über calc berechnet. Der Abstand von 2rem wird zunächst RECHTS angefügt, so dass die Spalten weiter aneinanderkleben. Abstand wird durch justify-content im parent-Element erzeugt! Wenn die Spalten nur die Hälfte der .about-center-Breite haben, kann ich oben flex-wrap: wrap; aktivieren und sie bleiben dennoch in einer Zeile!
+margin-bottom hebt den etwas weiter oben für die einspaltige Ansicht eingeführten Abstand von 2rem in der zweispaltigen Ansicht wieder auf.
+align-self: center bringt about-info auf halbe Höhe. Sollte das Bild niedriger sein als der Text, wird umgekehrt das Bild auf halbe Höhe des Texts gebracht. */
+
+/* Der im HTML eingefügte Container für das img (.about-img) dient nun dazu, ein Pseudoelement zu verwenden (was beim img allein nicht möglich gewesen wäre), um den blauen versetzten Rahmen einzufügen: */
+
+@media screen and (min-width: 1170px) {
+  .about-img::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0.5rem solid var(--clr-primary-5);
+    box-sizing: border-box;
+    top: -1.5rem;
+    left: -1.5rem;
+    /* z-index: -1; */
+  }
+  .about-img {
+    position: relative;
+  }
+  .about-photo {
+    position: relative;
+  }
+}
+
+/* .about.-img muss position: relative; haben, damit wir in dem before-Pseudoelement position: absolute; verwenden können.
+Das Pseudoelement bekommt keinen Inhalt, aber width und height von 100%, füllt also den ganzen about-img-Container aus. Dann kann man Rand und Versatz hinzufügen.
+Zunächst entsteht zwischen Bild und Rand rechts und unten eine Lücke. Das liegt daran, dass das before-Pseudoelement das im basic CSS eingestellte *{box-sizing:border-box;} nicht mitbekommt!
+Zunächst ist der Rahmen ÜBER dem Bild. (Obwohl im HTML das Pseudoelement an .about-img hängt, also vor dem Bild ist. Da wir aber position:absolute; haben, wird es aus dem Dokumentenfluss herausgeholt. Lösung 1: z-index: -1;
+Lösung 2: .about-photo mit position:relative; (?? Verstehe ich nicht!)
+*/
+
+/*
+=============== 
+Services
+===============
+*/
+.services {
+  background: var(--clr-grey-10);
+}
+/* färbt Hintergrund des Streifens */
+.service {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+/* HIER werden die Elemente alle zentriert! Und ein Abstand unter den Elementen eingefügt, wenn sie übereinander angezeigt werden.*/
+
+.service-icon {
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-1);
+  padding: 0.5rem 0.7rem;
+  display: inline-block;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+/* Merke: Der background wird auf Ebene des ELEMENTS definiert, nicht für den nächsthöheren Container. So muss man sich auch keine Gedanken machen, die Größe des Hintergrunds auf das Icon abzustimmen.
+display: inline-block;, da die span inline ist und daher keine margins etc. respektieren würde! */
+
+.service-text {
+  max-width: 20rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Wieder dierser Ablauf: Breite des Textes begrenzen und Text zentrieren mit margin-right/-left: auto; */
+
+@media screen and (min-width: 576px) {
+  .services-center {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .service {
+    flex: 0 0 calc(50% - 1rem);
+    margin-bottom: 1rem;
+  }
+}
+/* Zu justify-content und flex-wrap s.o. - Das zusätzliche padding, das mit justify-content: space-between "verbraten" wird, wird im Folgenden erzeugt: */
+
+/* Dadurch wird wohlgemerkt erst mal aus einem drei- ein zweispaltige Layout! Bisher hat der Browser beim Verschmälern direkt von drei auf eine Spalte geschaltet. margin-bottom macht den Rand unter den Elementen kleiner. An meiner Stelle hätte ich ihn hier aber gelassen.*/
+
+@media screen and (min-width: 992px) {
+  .service {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+}
+/* Die media query für den breiten Bildschrim ist einfacher. Den .services-center-Bereich von oben braucht man nicht mehr, da er ja schon besteht. Jetzt geht es nur noch darum, von zwei- auf dreispaltig zu gehen, also Spaltenbreite 33% zu definieren. */
+
+@media screen and (min-width: 1170px) {
+  .service {
+    display: flex;
+    text-align: left;
+  }
+  .service-icon {
+    align-self: start;
+  }
+  .service-info {
+    padding-left: 1rem;
+  }
+  .service-title {
+    margin-bottom: 0.5rem;
+  }
+}
+/* Die Icons noch links neben den Text rücken.
+1. die article-Elemente der .service-Klasse selbst zu flex-Containern machen und
+2. die Elemente darin anpassen:
+Text links ans Icon anlegen
+den Container des Icons nicht mehr stretchen (default), sondern align:start; (oder center)
+den Info-Text durch padding etwas vom Icon abrücken und
+den Abstand unter dem service-title etwas verkleinern.
+*/
+/*
+=============== 
+Featured Tours
+===============
+*/
+
+.tour-card {
+  transition: var(--transition);
+  background: var(--clr-grey-10);
+  box-shadow: var(--light-shadow);
+  margin-bottom: 2rem;
+}
+/* Generelles Styling der Karten mit Hintergrund, Schatten, dazu Abstand von 2rem nach unten. Transition wird hier für alle Karten festgelegt, die dann einzelnen per hover ausgelöst wird. */
+
+.tour-card:hover {
+  box-shadow: var(--dark-shadow);
+  transform: scale(1.01);
+}
+/* Hoververhalten: dunklerer Box-Shadow und Vergrößerung */
+
+.tour-img-container {
+  position: relative;
+}
+/* Damit sich dann das Datum über dem Bild absolut positionieren lässt */
+
+.tour-img {
+  height: 15rem;
+  object-fit: cover;
+}
+/* Bilder zuschneiden, Höhe, zudem object-fit: cover; gegen Verzerrung */
+
+.tour-date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-primary-8);
+  margin-bottom: 0;
+  color: var(--clr-primary-1);
+  text-transform: capitalize;
+  padding: 0.25rem 0.5rem;
+}
+/* .tour-date hatte als p aus den global styles ein margin-bottom: 1.25rem;, diese wird hier überschrieben. Das padding räumt dem Text im Datums-Container etwas Platz ein.*/
+
+.tour-info {
+  padding: 1.25rem 1.5rem;
+}
+/* Leichte Anpassung, der dem Textblock etwas Luft verschafft. */
+
+.tour-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: baseline; */
+}
+/* Zusätzliche CSS-Regel, um in der ersten Karte die Tour-Länge von 6 days neben der Überschrift anzeigen zu können.  */
+
+.tour-title p,
+.tour-title h4 {
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+/* Ich hatte die Überschrift und die Tages-Angabe zunächst im Parent-Container durch align-items: baseline; auf gleiche Höhe gerückt. Indem ich die line-height hier aber für beide Elemente angleiche, habe ich denselben Effekt!
+margin-bottom lässt den folgenden Absatz näher an h4 und den p mit der Tages-Angabe rücken.*/
+
+.tour-title p {
+  color: var(--clr-grey-7);
+}
+/* Macht die Tagesangabe etwas heller grau. (Finde ich schlecht lesbar, aber diese und die beiden darüber eingeführten CSS-Regeln zeigen, wie man die Tagesangabe sauber nach oben bekommt. */
+
+.tour-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* Footer wird zum flex-Container definiert, die Absätze darin als Flex-Elemente verwendet. Die Elemente werden im Maximalabstand gleichmäßig angeordnet (space-between). Aber wozu nochmal wrap? center platziert die Foooter-Elemente auf halber Höhe. */
+
+.tour-footer p {
+  line-height: 0;
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+  color: var(--clr-primary-5);
+}
+/* line-height: 0; nimmt die oben für body definierte line-height von 1,25 zurück. Bedeutung: Zahl multipliziert mit aktueller Schriftgröße/font-size margin-bottom hat kaum Wirkung.*/
+
+.tour-btn {
+  text-align: center;
+}
+/* Rückt den Text im Button-div in die Mitte. Das funktioniert, weil der Button ein Link ist und daher KEIN display: block; ist. Als Inline-Element "zieht ihn der Text darin mit." */
+
+@media screen and (min-width: 768px) {
+  .featured-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .tour-card {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .tour-card {
+    flex: 0 0 calc(33.333% - 2rem);
+  }
+}
+
+/*
+=============== 
+Contact
+===============
+*/
+.contact {
+  background: var(--clr-primary-5);
+}
+
+.contact-title {
+  color: var(--clr-grey-10);
+}
+/* John verwendet hier nur contact-title, nicht contact-title h3. Offenbar wird der folgende p aufgrund höherer Spezifizität der Regeln für p oben von dort gestylt, so dass er bezüglich der hier definierten Eigenschaften durch contact-title nicht angesprochen wird. */
+
+.contact-title p {
+  color: var(--clr-primary-8);
+}
+
+.contact-form {
+  display: flex;
+  max-width: 28rem;
+}
+/* max-width legt die Maximalbreite der Formular-Spalte fest. */
+
+.form-control {
+  flex: 1 1 auto;
+  color: var(--clr-grey-5);
+}
+
+/* Warum wird das Eingabefeld HÖHER, wenn ich flex definiere? Warum wird flex nicht für contact-center definiert? Das passiert erst weiter unten bei der media query!
+Warum ist bei mir zwischen dem Formularfeld und dem Button noch ein Abstand, bei John aber nicht? */
+
+.form-control,
+.btn-submit {
+  padding: 0.37rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: var(--spacing);
+  background: var(--clr-white);
+  text-transform: capitalize;
+  border: transparent;
+}
+
+.form-control {
+  color: inherit;
+}
+
+.btn-submit {
+  font-family: var(--ff-primary);
+  margin-left: 0.5rem;
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-1);
+  cursor: pointer;
+  transition: var(--transition);
+}
+/* Die font-family wird noch einmal festgelegt, weil das Button-Element die Schriftart nicht erbt! */
+
+.btn-submit:hover {
+  background: var(--clr-primary-1);
+  color: var(--clr-primary-5);
+}
+
+@media screen and (min-width: 992px) {
+  .contact-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .contact-form {
+    align-self: flex-start;
+    flex: 1 1 auto;
+    max-width: 100%;
+    padding-left: 2rem;
+  }
+}
+/* align-self: flex-start; sorgt dafür, dass das Eingabefeld nicht auf die (durch die Text-Spalte vorgegebene) Gesamthöhe der Flex-Elemente gedehnt wird (stretch ist default).
+flex: 1 1 auto; sorgt dafür, dass das Eingabefeld so breit wird wie der Container (minus ein padding).
+max-width sorgt dafür, dass die oben festgelegte Maximalbreite von 37rem überschrieben wird und das Feld die gesamte Spaltenbreite ausfüllt, minus das padding-left. */
+
+/*
+=============== 
+Gallery
+===============
+*/
+.gallery-img-container {
+  position: relative;
+  background: var(--clr-primary-5);
+}
+/* position: relative;, um das Icon absolut platzieren zu können */
+
+.gallery-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  color: var(--clr-white);
+  opacity: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gallery-img {
+  height: 17rem;
+  object-fit: cover;
+  transition: var(--transition);
+}
+/* Hier werden die Bilder auf gleiche Größe gebracht: Höhe 17rem und cover (unverzerrt)
+transition, um das Bild durchsichtig zu machen, damit der Hintergrund durchscheint. */
+
+.gallery-img-container:hover .gallery-img {
+  opacity: 0.5;
+}
+
+.gallery-img-container:hover .gallery-icon {
+  opacity: 1;
+}
+/* Merke: Für die Hover-Funktionen wird der GESAMTE Container als "Zielscheibe" genutzt.
+Syntax: Wenn der Mauszeiger über dem Container steht, soll das Element Klasse .gallery-img sich folgendermaßen verändern. */
+
+/* John: Man könnte hier auch wieder mit einem .section-center arbeiten, um die Breite zu begrenzen. Aber er wollte, dass die Gallery heraussticht, indem sie die gesamte Breite einnimmt. */
+
+@media screen and (min-width: 768px) {
+  .gallery-center {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gallery-img-container {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .gallery-img-container {
+    flex: 0 0 33.333%;
+  }
+}
+
+@media screen and (min-width: 1170px) {
+  .gallery-img-container {
+    flex: 0 0 25%;
+  }
+}
+/* Ich habe noch einen weiteren Schritt dazwischengeschrieben. John hatte ab 992 schon vier Spalten. */
+/*
+=============== 
+Footer
+===============
+*/
+
+.footer {
+  background: var(--clr-grey-1);
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+/* Hintergrundfarbe, Text zentrieren, da oben und unten schon padding aus den basic styles nur noch links und rechts padding anfügen. */
+
+.footer-links,
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+/* Zum Anordnen wird Flexbox verwendet: Links und Icons werden nebeneinander angezeigt. */
+
+.footer-link {
+  color: var(--clr-white);
+  font-size: 1rem;
+  margin-right: 1rem;
+  letter-spacing: var(--spacing);
+  transform: var(--transition);
+}
+/* Funktioniert color für den Text nur mit dem Text UNMITTELBAR im Container? Nein, color wird vererbt. Aber: Vielleicht übernehmen links o.ä. die Schriftfarbe nicht, wenn sie nicht speziell für das Element spezifiziert wird...*/
+
+.footer-link:hover {
+  color: var(--clr-primary-5);
+}
+
+.footer-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: var(--clr-primary-8);
+  transform: var(--transition);
+}
+
+.footer-icon:hover {
+  color: var(--clr-primary-5);
+}
+
+.copyright {
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  color: var(--clr-white);
+}

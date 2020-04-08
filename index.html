@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Backroads || Tour Company</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./images/favicon2.ico"
+      type="image/x-icon"
+    />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-5.12.1-web/css/all.min.css"
+    />
+    <!-- styles css -->
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+      <!-- header  -->
+    <header id="home">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="nav-center">
+          <!-- nav header -->
+          <div class="nav-header">
+            <img src="./images/logo.svg" class="nav-logo" alt="Logo">
+            <button type="button" class="nav-toggle" id="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+          <!-- end of nav header -->
+          <!-- nav links -->
+          <ul class="nav-links" id="nav-links">
+            <!-- single link -->
+            <li>
+            <a href="#home" class="nav-link scroll-link">Home</a>
+            </li>
+            <!-- end of single link -->
+            <!-- single link -->
+            <li>
+            <a href="#about" class="nav-link scroll-link">About</a>
+            </li>
+            <!-- end of single link -->
+            <!-- single link -->
+            <li>
+            <a href="#services" class="nav-link scroll-link">Services</a>
+            </li>
+            <!-- end of single link -->
+            <!-- single link -->
+            <li>
+            <a href="#featured" class="nav-link scroll-link">Featured</a>
+            </li>
+            <!-- end of single link -->
+            <!-- single link -->
+            <li>
+            <a href="#gallery" class="nav-link scroll-link">Gallery</a>
+            </li>
+            <!-- end of single link -->
+          </ul>
+          <!-- end of nav links -->
+      <!-- Die Links wurden aus dem Footer-HTML hierher kopiert und dann die Klassen etc. umbenannt.
+      Die scroll-link-Klasse ist nötig, damit JS ein smooth scrolling steuert. -->
+          <!-- nav icons -->
+          <ul class="nav-icons">
+            <!-- single icon -->
+            <li>
+              <a href="https://www.facebook.com" target="_blank" class="nav-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <!-- end of single icon -->
+            <!-- single icon -->
+            <li>
+              <a href="https://www.twitter.com" target="_blank" class="nav-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <!-- end of single icon -->
+            <!-- single icon -->
+            <li>
+              <a href="https://www.squarespace.com" target="_blank" class="nav-icon">
+                <i class="fab fa-squarespace"></i>
+              </a>
+            </li>
+            <!-- end of single icon -->
+          </ul>
+          <!-- end of nav icons -->
+        </div>
+        <!-- Flex-Container, der das Menü plus Logo plus Social-Icons auf großen Bildschirmen steuert: Nav-Leiste zieht sich über gesamte Breite, Logo über Menü bis Icons sind nur 1170px breit. -->
+      </nav>
+      <!-- end of navbar -->
+      <!-- hero -->
+      <div class="hero">
+        <div class="hero-banner">
+          <h1>continue exploring</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+            blanditiis molestiae odit magnam facere ex dolorum!
+          </p>
+          <a href="#featured" class="btn hero-btn scroll-link">explore tours</a>
+          <!-- !!! LINK, der wie button gestylt wird!!! Ist die Standardlösung, NICHT button!-->
+        </div>
+      </div>
+      <!-- Anmerkung: John fügt zusätzlich das div mit der hero-banner-Klasse ein, als einziges Element im .hero-div. So kann er alle Elemente im .hero-banner als Einheit zentral platzieren. Aber der Grund liegt wohl wieder darin, dass dann unabhängig ein Bild etc. in hero platziert werden kann.  -->
+    </header>
+    <!-- end of header  -->
+    <!-- about section -->
+    <section class="section" id="about">
+      <!-- section title -->
+      <div class="section-title">
+        <h2>about <span>us</span></h2>
+      </div>
+      <div class="section-center about-center">
+        <!-- about img wrapper -->
+        <article class="about-img">
+          <img
+            src="./images/about.jpeg"
+            alt="Palmenstrand"
+            class="about-photo"
+          />
+        </article>
+        <!-- about info -->
+        <article class="about-info">
+          <h3>explore the difference</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam,
+            atque obcaecati. Nostrum dolorum cum ab maiores deserunt illum, non
+            blanditiis.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. In illum
+            doloribus corporis laborum incidunt sequi impedit totam quod,
+            ratione odit.
+          </p>
+          <a href="#" class="btn">read more</a>
+        </article>
+      </div>
+
+      <!-- section dient dazu, die Breite des von ihr kontrollierten "Streifens" festzulegen. Das div mit .about-center dient dazu, das zwei- (oder mehr)spaltige Layout festzulegen. .section-center steuert das allgemeine CSS für das div unterhalb der Sektionen.
+      Dann ändert John das div um das img zu einem article. Ist semantisch sinnvoller, sagt er. Hm.-->
+      <!-- end of title -->
+    </section>
+    <!-- end of about section -->
+
+    <!-- services -->
+    <section class="section services" id="services">
+      <!-- section title -->
+      <div class="section-title">
+        <h2>our <span>services</span></h2>
+      </div>
+      <div class="section-center services-center">
+        <!-- section-center dient nur dazu, die Breite des Streifen einzustellen. -->
+        <!-- services icon -->
+        <article class="service">
+          <span class="service-icon">
+            <i class="fas fa-wallet fa-fw"></i>
+          </span>
+          <!-- services info -->
+          <div class="service-info">
+            <h4 class="service-title">saving money</h4>
+            <p class="service-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              quis velit ipsa neque, id quas repellat dolore saepe perferendis
+              molestiae?
+            </p>
+          </div>
+        </article>
+        <!-- services icon -->
+        <article class="service">
+          <span class="service-icon">
+            <i class="fas fa-tree fa-fw"></i>
+          </span>
+          <!-- services info -->
+          <div class="service-info">
+            <h4 class="service-title">endless biking</h4>
+            <p class="service-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est
+              excepturi esse quidem voluptatum, provident modi quibusdam
+              cupiditate ad delectus pariatur.
+            </p>
+          </div>
+        </article>
+        <!-- services icon -->
+        <article class="service">
+          <span class="service-icon">
+            <i class="fas fa-socks fa-fw"></i>
+          </span>
+          <!-- services info -->
+          <div class="service-info">
+            <h4 class="service-title">amazing comfort</h4>
+            <p class="service-text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Exercitationem quis, iure voluptatum quos culpa quo nulla. Nihil
+              quaerat quibusdam libero.
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+    <!-- Jon verwendet zunächst dieselbe Struktur wie beim About Us-Streifen: Eine section für den Gesamtstreifen, dann einen Titel mit demselben Styling. Dann kommt ein zweiter Bereich, der mit den drei Spalten, jeweils als ARTICLE.
+    fa-fw als class für das Icon stellt sicher, dass die Größe des Icons überall gleich ist. (Wie?)
+    Meine Idee, das Icon und den Text daneben in zwei verschiedene Container zu stecken war korrekt, weil sie ja nebeneinander angezeigt werden sollen und daher zwei Spalten erzeugt werden müssen! -->
+    <!--end services -->
+    <!-- featured tours -->
+    <section class="section" id="featured">
+          <!-- Bemerkung zu den in die Sektionen eingefügten Klassen: Diese dienen als Ziel für das Scrollen! -->
+      <!-- section title -->
+      <div class="section-title">
+        <h2>featured <span>tours</span></h2>
+      </div>
+      <div class="section-center featured-center">
+        <!-- tours card -->
+        <article class="tour-card">
+          <div class="tour-img-container">
+            <img src="./images/tour-1.jpeg" class="tour-img" alt="Tibet Bergdorf">
+            <p class="tour-date">
+              august 26th, 2020
+            </p>
+            <!-- Merke: Das Datum, das später absolut positioniert wird, wird IN den Container eingefügt, in dem es dann platziert wird! (hier als p) -->
+          </div>
+          <div class="tour-info">
+            <div class="tour-title">
+            <h4>tibet andventure</h4>
+            <p>6 days</p>
+            </div>
+            <!-- Verändertes HTML, um 6 days neben Überschrift anzuzeigen -->
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae ducimus adipisci, voluptate ipsa, placeat voluptates neque, recusandae eligendi incidunt error amet rem expedita fuga saepe.
+            </p>
+            <div class="tour-footer">
+            <p>
+              <span>
+                <i class="fa fa-map"></i>china
+              </span>
+            </p>
+            <p>from $2100</p>
+              <!-- Merke: Die Infos unten in der Karte werden über ps eingefügt. -->
+            </div>
+          </div>
+        </article>
+        <!-- end of tours card -->
+                <!-- tours card -->
+        <article class="tour-card">
+          <div class="tour-img-container">
+            <img src="./images/tour-2.jpeg" class="tour-img" alt="Frau Straße Palmen">
+            <p class="tour-date">
+              october 1st, 2020
+            </p>
+            <!-- Merke: Das Datum, das später absolut positioniert wird, wird IN den Container eingefügt, in dem es dann platziert wird! (hier als p) -->
+          </div>
+          <div class="tour-info">
+            <h4>best of java</h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae ducimus adipisci, voluptate ipsa, placeat voluptates neque, recusandae eligendi incidunt error amet rem expedita fuga saepe.
+            </p>
+            <div class="tour-footer">
+            <p>
+              <span>
+                <i class="fa fa-map"></i>indonesia
+              </span>
+            </p>
+            <p>11 days</p>
+            <p>from $1400</p>
+              <!-- Merke: Die Infos unten in der Karte werden über ps eingefügt. -->
+            </div>
+          </div>
+        </article>
+        <!-- end of tours card -->
+                <!-- tours card -->
+        <article class="tour-card">
+          <div class="tour-img-container">
+            <img src="./images/tour-3.jpeg" class="tour-img" alt="Hongkong Skyscrapers">
+            <p class="tour-date">
+              september 15th, 2020
+            </p>
+            <!-- Merke: Das Datum, das später absolut positioniert wird, wird IN den Container eingefügt, in dem es dann platziert wird! (hier als p) -->
+          </div>
+          <div class="tour-info">
+            <h4>explore hong kong</h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae ducimus adipisci, voluptate ipsa, placeat voluptates neque, recusandae eligendi incidunt error amet rem expedita fuga saepe.
+            </p>
+            <div class="tour-footer">
+            <p>
+              <span>
+                <i class="fa fa-map"></i>Honkong
+              </span>
+            </p>
+            <p>8 days</p>
+            <p>from $5000</p>
+              <!-- Merke: Die Infos unten in der Karte werden über ps eingefügt. -->
+            </div>
+          </div>
+        </article>
+        <!-- end of tours card -->
+                <!-- tours card -->
+        <article class="tour-card">
+          <div class="tour-img-container">
+            <img src="./images/tour-4.jpeg" class="tour-img" alt="Elefant">
+            <p class="tour-date">
+              december 5th, 2020
+            </p>
+            <!-- Merke: Das Datum, das später absolut positioniert wird, wird IN den Container eingefügt, in dem es dann platziert wird! (hier als p) -->
+          </div>
+          <div class="tour-info">
+            <h4>Kenya Highlights</h4>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae ducimus adipisci, voluptate ipsa, placeat voluptates neque, recusandae eligendi incidunt error amet rem expedita fuga saepe.
+            </p>
+            <div class="tour-footer">
+            <p>
+              <span>
+                <i class="fa fa-map"></i>kenya
+              </span>
+            </p>
+            <p>20 days</p>
+            <p>from $3300</p>
+              <!-- Merke: Die Infos unten in der Karte werden über ps eingefügt. -->
+            </div>
+          </div>
+        </article>
+        <!-- end of tours card -->
+      </div>  
+        <div class="tour-btn">
+        <a href="#" class="btn">all tours</a>
+        </div>
+        <!-- Beachte die Platzierung des Links AUSSERHALB des Spalten-Layouts .section-center .featured-center. -->
+    </section>
+    <!-- end of featured tours -->
+    <!-- contact -->
+    <section class="section contact" id="contact">
+      <div class="section-center contact-center">
+        <!-- contact text (nennt er "title", ist Quatsch) -->
+        <article class="contact-title">
+          <h3>want latest tour info and updates?</h3>
+          <p>Sign up for newsletter and stay up to date</p>
+        </article>
+        <!-- contact form -->
+        <form action="" class="contact-form">
+              <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="your email">
+              <button type="submit" class="btn-submit">submit</button>
+        </form>
+        <!-- action="" wird hier nicht verwendet, könnte aber durch Forspree genutzt werden.
+        Beachte: form kann auch eine Klasse bekommen!
+        Der Button wird nicht als Button des Formulars (input type="submit") angelegt, sondern eplizit als Button.
+        Auf diese Weise kann man das Formular per Return abschicken, und nicht nur durch Mausklick!
+        Hier wird eine spezielle btn-submit-Klasse verwendet, nicht die generische btn-Klasse. -->
+      </div>
+    </section>
+    <!-- end of contact -->
+    <!-- gallery  -->
+    <section id="gallery">
+      <div class="gallery-center">
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-1.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-2.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-3.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-4.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-5.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-6.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-1.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+        <!-- einzelnes Bild -->
+        <article class="gallery-img-container">
+        <img src="./images/tour-2.jpeg" class="gallery-img" alt="">
+        <a href="#" class="gallery-icon">
+          <i class="fas fa-search"></i>
+        </a>
+        </article>
+        <!-- Ende einzelnes Bild -->
+      </div>
+    </section>
+    <!-- Die Sektion bekommt nur eine id="gallery", damit Navigation möglich ist. Die div gallery-center dient als Container für das Spalten-Layout. Die divs um die Bilder sind nötig, um das Icon absolut in dem div positionieren zu können. -->
+    <!-- end of gallery  -->
+    <!-- footer -->
+<footer class="section footer" id="footer">
+  <!-- footer links -->
+  <ul class="footer-links">
+    <!-- single link -->
+    <li>
+    <a href="#home" class="footer-link scroll-link">Home</a>
+    </li>
+    <!-- end of single link -->
+    <!-- single link -->
+    <li>
+    <a href="#about" class="footer-link scroll-link">About</a>
+    </li>
+    <!-- end of single link -->
+    <!-- single link -->
+    <li>
+    <a href="#services" class="footer-link scroll-link">Services</a>
+    </li>
+    <!-- end of single link -->
+    <!-- single link -->
+    <li>
+    <a href="#featured" class="footer-link scroll-link">Featured</a>
+    </li>
+    <!-- end of single link -->
+    <!-- single link -->
+    <li>
+    <a href="#gallery" class="footer-link scroll-link">Gallery</a>
+    </li>
+    <!-- end of single link -->
+  </ul>
+  <!-- end of footer links -->
+  <!-- footer icons -->
+  <ul class="footer-icons">
+    <!-- single icon -->
+    <li>
+      <a href="https://www.facebook.com" target="_blank" class="footer-icon">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </li>
+    <!-- end of single icon -->
+    <!-- single icon -->
+    <li>
+      <a href="https://www.twitter.com" target="_blank" class="footer-icon">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+    <!-- end of single icon -->
+    <!-- single icon -->
+    <li>
+      <a href="https://www.squarespace.com" target="_blank" class="footer-icon">
+        <i class="fab fa-squarespace"></i>
+      </a>
+    </li>
+    <!-- end of single icon -->
+  </ul>
+  <!-- end of footer icons -->
+  <p class="copyright">Copyright &copy; Backroads Travel Tours Company <span id="date"></span>. All Rights Reserved</p>
+</footer>
+<!-- Hier keine section-Klasse, sondern - Überraschung - die footer-Klasse. Die Links werden als ul (!) angelegt, merken. class="footer-link": Wird für die Navbar in nav-link umbenannt, damit wir das Menü wiederverwenden, aber anders stylen können. class="scroll-link" dient dazu, per JS smooth scrolling zu ermöglichen.
+Beachte, wie die Social-Icons zu Links gemacht werden: Einfach an die Stelle setzen, an die der Linktext käme.-->
+
+
+
+
+    <!-- js -->
+    <script src="./js/app.js"></script>
+  </body>
+</html>
