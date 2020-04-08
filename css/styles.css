@@ -138,6 +138,7 @@ p {
   letter-spacing: var(--spacing);
   display: inline-block;
   /* font-weight: 700; */
+  -webkit-transition: var(--transition);
   transition: var(--transition);
   font-size: 0.875rem;
   border: 2px solid transparent;
@@ -212,8 +213,11 @@ box-shadow schafft Abgrenzung zu anderen weißen Seitenbereichen, z-index hebt d
 margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente darin. */
 
 .nav-header {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
   padding: 1rem 2rem;
 }
@@ -224,11 +228,13 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
   font-size: 1.5rem;
   color: var(--clr-primary-5);
   cursor: pointer;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 /* Die beiden transparent-Angaben entfernen das blöde Grau und den schwarzen Rand des Buttons. */
 
 .nav-toggle:hover {
+  -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
 
@@ -237,6 +243,7 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
   padding: 1rem 2rem;
   text-transform: capitalize;
   letter-spacing: var(--spacing);
+  -webkit-transition: var(--transition);
   transition: var(--transition);
   color: var(--clr-grey-1);
   cursor: pointer;
@@ -253,6 +260,7 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
 .nav-links {
   height: 0;
   overflow: hidden;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 /* height: 0; lässt zu, dass das Hero-Bild bzw. die Seiteninhalte sich über die Links schieben. overflow: hidden; sorgt dafür, dass die gesamte Höhe der Links "überfließt" und damit verschwindet.*/
@@ -271,8 +279,11 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
     display: none;
   }
   .nav-center {
+    display: -webkit-box;
     display: flex;
+    -webkit-box-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -281,6 +292,7 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
   flex-wrap: wrap: optional, für media queries, bei denen die Breite geringer ist als 992px, so dass der Platz für nicht mehr  für alle Menüeinträge reicht.*/
   .nav-links {
     height: auto;
+    display: -webkit-box;
     display: flex;
   }
   .nav-header {
@@ -298,6 +310,7 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
     background: transparent;
   }
   .nav-icons {
+    display: -webkit-box;
     display: flex;
   }
   /* display: flex; schaltet zum einen display: none; wieder aus, zudem werden die Icons innerhalb ihres Containers ul.nav-icons flex und damit nebeneinander angezeigt.*/
@@ -305,6 +318,7 @@ margin: 0 auto; bringt die .nav-center-div in die Mitte, NICHT die Elemente dari
     margin-right: 0.7rem;
     color: var(--clr-primary-5);
     font-size: 1.2rem;
+    -webkit-transition: var(--transition);
     transition: var(--transition);
   }
   .nav-icon:hover {
@@ -320,8 +334,11 @@ Hero
 .hero {
   min-height: 100vh;
   background: var(--clr-primary-5);
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
   align-items: center;
   /* DAS ist der Code, um Children-Elemente zentral anzuordnen, bzw. genauer: um das einzige Cild-Element, .hero-banner, zentral anzuordnen.*/
 }
@@ -368,6 +385,14 @@ Hero
 
 @media screen and (min-width: 768px) {
   .hero {
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(rgb(44, 174, 186, 0.7)),
+        to(rgba(0, 0, 0, 0.7))
+      ),
+      url("../images/main.jpeg") center/cover no-repeat;
     background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
       url("../images/main.jpeg") center/cover no-repeat;
   }
@@ -397,8 +422,10 @@ About
 
 @media screen and (min-width: 992px) {
   .about-center {
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
     justify-content: space-between;
   }
 }
@@ -407,6 +434,7 @@ About
 
 .about-img,
 .about-info {
+  -webkit-box-flex: 0;
   flex: 0 0 calc(50% - 2rem);
   margin-bottom: 0;
   align-self: center;
@@ -479,11 +507,14 @@ display: inline-block;, da die span inline ist und daher keine margins etc. resp
 
 @media screen and (min-width: 576px) {
   .services-center {
+    display: -webkit-box;
     display: flex;
+    -webkit-box-pack: justify;
     justify-content: space-between;
     flex-wrap: wrap;
   }
   .service {
+    -webkit-box-flex: 0;
     flex: 0 0 calc(50% - 1rem);
     margin-bottom: 1rem;
   }
@@ -494,6 +525,7 @@ display: inline-block;, da die span inline ist und daher keine margins etc. resp
 
 @media screen and (min-width: 992px) {
   .service {
+    -webkit-box-flex: 0;
     flex: 0 0 calc(33.333% - 1rem);
   }
 }
@@ -501,6 +533,7 @@ display: inline-block;, da die span inline ist und daher keine margins etc. resp
 
 @media screen and (min-width: 1170px) {
   .service {
+    display: -webkit-box;
     display: flex;
     text-align: left;
   }
@@ -529,6 +562,7 @@ Featured Tours
 */
 
 .tour-card {
+  -webkit-transition: var(--transition);
   transition: var(--transition);
   background: var(--clr-grey-10);
   box-shadow: var(--light-shadow);
@@ -538,6 +572,7 @@ Featured Tours
 
 .tour-card:hover {
   box-shadow: var(--dark-shadow);
+  -webkit-transform: scale(1.01);
   transform: scale(1.01);
 }
 /* Hoververhalten: dunklerer Box-Shadow und Vergrößerung */
@@ -549,6 +584,7 @@ Featured Tours
 
 .tour-img {
   height: 15rem;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 /* Bilder zuschneiden, Höhe, zudem object-fit: cover; gegen Verzerrung */
@@ -571,8 +607,10 @@ Featured Tours
 /* Leichte Anpassung, der dem Textblock etwas Luft verschafft. */
 
 .tour-title {
+  display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
+  -webkit-box-pack: justify;
   justify-content: space-between;
   /* align-items: baseline; */
 }
@@ -592,9 +630,12 @@ margin-bottom lässt den folgenden Absatz näher an h4 und den p mit der Tages-A
 /* Macht die Tagesangabe etwas heller grau. (Finde ich schlecht lesbar, aber diese und die beiden darüber eingeführten CSS-Regeln zeigen, wie man die Tagesangabe sauber nach oben bekommt. */
 
 .tour-footer {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
   flex-wrap: wrap;
+  -webkit-box-align: center;
   align-items: center;
 }
 /* Footer wird zum flex-Container definiert, die Absätze darin als Flex-Elemente verwendet. Die Elemente werden im Maximalabstand gleichmäßig angeordnet (space-between). Aber wozu nochmal wrap? center platziert die Foooter-Elemente auf halber Höhe. */
@@ -614,17 +655,21 @@ margin-bottom lässt den folgenden Absatz näher an h4 und den p mit der Tages-A
 
 @media screen and (min-width: 768px) {
   .featured-center {
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
     justify-content: space-between;
   }
   .tour-card {
+    -webkit-box-flex: 0;
     flex: 0 0 calc(50% - 2rem);
   }
 }
 
 @media screen and (min-width: 1170px) {
   .tour-card {
+    -webkit-box-flex: 0;
     flex: 0 0 calc(33.333% - 2rem);
   }
 }
@@ -648,12 +693,14 @@ Contact
 }
 
 .contact-form {
+  display: -webkit-box;
   display: flex;
   max-width: 28rem;
 }
 /* max-width legt die Maximalbreite der Formular-Spalte fest. */
 
 .form-control {
+  -webkit-box-flex: 1;
   flex: 1 1 auto;
   color: var(--clr-grey-5);
 }
@@ -683,6 +730,7 @@ Warum ist bei mir zwischen dem Formularfeld und dem Button noch ein Abstand, bei
   background: var(--clr-primary-8);
   color: var(--clr-primary-1);
   cursor: pointer;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 /* Die font-family wird noch einmal festgelegt, weil das Button-Element die Schriftart nicht erbt! */
@@ -694,12 +742,15 @@ Warum ist bei mir zwischen dem Formularfeld und dem Button noch ein Abstand, bei
 
 @media screen and (min-width: 992px) {
   .contact-center {
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
     justify-content: space-between;
   }
   .contact-form {
     align-self: flex-start;
+    -webkit-box-flex: 1;
     flex: 1 1 auto;
     max-width: 100%;
     padding-left: 2rem;
@@ -725,16 +776,20 @@ Gallery
   top: 50%;
   left: 50%;
   font-size: 2rem;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   color: var(--clr-white);
   opacity: 0;
   cursor: pointer;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 
 .gallery-img {
   height: 17rem;
+  -o-object-fit: cover;
   object-fit: cover;
+  -webkit-transition: var(--transition);
   transition: var(--transition);
 }
 /* Hier werden die Bilder auf gleiche Größe gebracht: Höhe 17rem und cover (unverzerrt)
@@ -754,22 +809,26 @@ Syntax: Wenn der Mauszeiger über dem Container steht, soll das Element Klasse .
 
 @media screen and (min-width: 768px) {
   .gallery-center {
+    display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
   }
   .gallery-img-container {
+    -webkit-box-flex: 0;
     flex: 0 0 50%;
   }
 }
 
 @media screen and (min-width: 992px) {
   .gallery-img-container {
+    -webkit-box-flex: 0;
     flex: 0 0 33.333%;
   }
 }
 
 @media screen and (min-width: 1170px) {
   .gallery-img-container {
+    -webkit-box-flex: 0;
     flex: 0 0 25%;
   }
 }
@@ -790,7 +849,9 @@ Footer
 
 .footer-links,
 .footer-icons {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
@@ -802,6 +863,7 @@ Footer
   font-size: 1rem;
   margin-right: 1rem;
   letter-spacing: var(--spacing);
+  -webkit-transform: var(--transition);
   transform: var(--transition);
 }
 /* Funktioniert color für den Text nur mit dem Text UNMITTELBAR im Container? Nein, color wird vererbt. Aber: Vielleicht übernehmen links o.ä. die Schriftfarbe nicht, wenn sie nicht speziell für das Element spezifiziert wird...*/
@@ -814,6 +876,7 @@ Footer
   font-size: 2rem;
   margin-right: 1rem;
   color: var(--clr-primary-8);
+  -webkit-transform: var(--transition);
   transform: var(--transition);
 }
 
